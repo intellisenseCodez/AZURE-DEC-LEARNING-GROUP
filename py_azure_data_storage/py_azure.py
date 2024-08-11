@@ -35,6 +35,7 @@ def get_file_system(service_client: DataLakeServiceClient, file_system_name: str
 
 
 def upload_file_to_directory(directory_client: DataLakeDirectoryClient, local_path: str, file_name: str):
+    # Get the file client
     file_client = directory_client.get_file_client(file_name)
 
     # Upload the CSV file content
@@ -62,7 +63,6 @@ if "__main__" == __name__:
     else:
         directory_client = file_system_client.get_root_directory_client()
     
-    # Get the file client
-    file_client = directory_client.get_file_client(csv_file_name)
+    # Upload the CSV file content
     upload_file_to_directory(directory_client=directory_client, local_path=local_path, file_name=csv_file_name)
         
