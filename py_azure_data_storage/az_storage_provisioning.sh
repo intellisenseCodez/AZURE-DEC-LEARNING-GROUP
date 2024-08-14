@@ -28,9 +28,11 @@ az group show --name "$RESOURCE_GROUP_NAME"
 echo "Creating storage account '$STORAGE_ACCOUNT_NAME'..."
 az storage account create --name "$STORAGE_ACCOUNT_NAME" --resource-group "$RESOURCE_GROUP_NAME" --location "$LOCATION" --sku "$STORAGE_REPLICATION" --kind StorageV2 --hns true
 
+
 # Verify that the storage account was created
 echo "Verifying storage account creation..."
 az storage account show --name "$STORAGE_ACCOUNT_NAME" --resource-group "$RESOURCE_GROUP_NAME"
+
 
 # # Get the shared access signatures
 # echo "Generating shared access signatures..."
